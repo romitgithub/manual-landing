@@ -16,12 +16,12 @@ import "./App.scss";
 function App() {
   return (
     <div className="manual-app">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Route exact path={`${process.env.PUBLIC_URL}/`}>
+          <Route exact path="/">
             <Landing />
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/quiz`}>
+          <Route exact path="/quiz">
             <Quiz />
           </Route>
         </Switch>
