@@ -161,17 +161,39 @@
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1280px) {
+@media (min-width: 1920px) {
+  .footer {
+    font-size: 16px;
+
+    .logo {
+      width: 72px;
+    }
+
+    .row {
+      .links-container {
+        padding: 0 6em;
+
+        ul.single-row {
+          padding-left: 4em;
+
+          li.social-icons {
+            img.social-media-logo {
+              width: 28px;
+
+              &.facebook {
+                width: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 2560px) {
   .footer {
-    font-size: 30px;
-    .copyright-text {
-      padding-top: 4rem;
-      margin-top: 8rem;
-      font-size: 1.7rem;
-    }
+    font-size: 24px;
 
     .logo {
       width: 120px;
