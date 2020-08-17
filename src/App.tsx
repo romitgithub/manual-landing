@@ -18,10 +18,10 @@ function App() {
     <div className="manual-app">
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path={`${process.env.PUBLIC_URL}/`}>
             <Landing />
           </Route>
-          <Route path="/quiz">
+          <Route path={`${process.env.PUBLIC_URL}/quiz`}>
             <Quiz />
           </Route>
         </Switch>
