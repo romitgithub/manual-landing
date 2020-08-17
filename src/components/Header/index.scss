@@ -1,0 +1,178 @@
+@import "../../styles/colors";
+@import "../../styles/fonts";
+@import "../../styles/variables";
+
+.header {
+  position: relative;
+  padding: 4% 10%;
+  background-image: url("../../assets/img/hair-cat-header/hair-cat-header.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 680px;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  .title-text {
+    margin-top: 1em;
+    font-family: "Montserrat Extra Bold";
+    font-size: 4em;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: $text_primary;
+    text-transform: uppercase;
+  }
+
+  .desc-text {
+    max-width: 50%;
+    margin-top: 30px;
+    margin-left: 12px;
+    font-family: Helvetica;
+    font-size: 1em;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    color: $text_primary;
+  }
+
+  .take-quiz-btn {
+    margin-top: 2em;
+    border-radius: 5em;
+    padding: 1em 2.4em;
+    text-transform: uppercase;
+    font-size: 1em;
+    border: none;
+    font-family: "Montserrat Bold";
+    letter-spacing: 2.4px;
+    color: #ffffff;
+    box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.5);
+    background-color: $primary_color;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
+// Small devices (landscape phones, 480px and below)
+@media (max-width: $mobile) {
+  .header {
+    display: flex;
+    height: 100vh;
+    background-position: right;
+    background-position-y: 0px;
+    background-size: cover;
+    background: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    padding: 2% 6%;
+
+    .logo {
+      width: 50px;
+      position: absolute;
+      top: 1em;
+    }
+
+    .title-text {
+      font-size: 1.6em;
+      margin-top: 0.5em;
+      color: white;
+      text-shadow: 4px 4px 12px #00000080;
+    }
+
+    .desc-text {
+      margin-top: 1.8rem;
+      margin-left: 0;
+      font-size: 1.2rem;
+      color: white;
+      max-width: 90%;
+      text-shadow: 4px 4px 12px #00000080;
+    }
+
+    .take-quiz-btn {
+      margin-top: 4em;
+      padding: 1.6em 3em;
+      font-size: 0.4em;
+    }
+  }
+}
+
+@media (min-width: $mobile) {
+  .header {
+    padding: 4% 8%;
+    height: 290px;
+    font-size: 8px;
+
+    .logo {
+      width: 24px;
+    }
+
+    .desc-text {
+      margin-top: 0.8em;
+      margin-left: 0;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .header {
+    height: 420px;
+    font-size: 12px;
+
+    .logo {
+      width: 30px;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .header {
+    height: 640px;
+    font-size: 16px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1280px) {
+  .header {
+    background-image: url("../../assets/img/hair-cat-header/hair-cat-header@2x.jpg");
+    height: 700px;
+    font-size: 20px;
+
+    .logo {
+      width: 60px;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .header {
+    height: 920px;
+    font-size: 28px;
+
+    .logo {
+      width: 80px;
+    }
+  }
+}
+
+@media (min-width: 2560px) {
+  .header {
+    background-image: url("../../assets/img/hair-cat-header/hair-cat-header@2x.jpg");
+    height: 1440px;
+    font-size: 40px;
+
+    .logo {
+      width: 100px;
+    }
+  }
+}

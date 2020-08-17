@@ -1,0 +1,11 @@
+@import "styles/colors";
+@import "styles/fonts";
+
+body {
+  font-family: 'Montserrat Regular'
+}
+
+a {
+  color: $text-primary;
+  text-decoration: none;
+}
