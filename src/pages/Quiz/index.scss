@@ -157,14 +157,14 @@
 // Small devices (landscape phones, 480px and below)
 @media (max-width: $mobile) {
   .quiz-container {
-    padding: 2rem;
-    font-size: 12px;
+    padding: 4rem 2rem;
+    font-size: 14px;
     justify-content: center;
     min-height: 100vh;
     box-sizing: border-box;
 
     .logo {
-      width: 30px;
+      width: 36px;
     }
 
     .result {
@@ -191,7 +191,8 @@
 
 @media (min-width: $mobile) {
   .quiz-container {
-    padding: 3rem;
+    padding: 5rem 3rem;
+    font-size: 14px;
   }
 }
 
@@ -203,7 +204,7 @@
 
 @media (min-width: 992px) {
   .quiz-container {
-    padding: 12rem;
+    padding: 8rem 12rem;
     font-size: 16px;
   }
 }
@@ -211,7 +212,7 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1280px) {
   .quiz-container {
-    padding: 16rem;
+    padding: 10rem 16rem;
     font-size: 18px;
 
     .logo {

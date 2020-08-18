@@ -5,14 +5,6 @@ import Quiz from "./pages/Quiz";
 
 import "./App.scss";
 
-/**
- * TODO:
- *
- * 2. Check Responsiveness
- * 4. Add check for tab close in quiz
- *
- */
-
 function App() {
   return (
     <div className="manual-app">
