@@ -22,6 +22,8 @@ class ApiService {
           return response.json().then((data) => {
             return data;
           });
+        } else {
+          throw new Error("Failed to load quiz questions");
         }
       },
       (error) => {

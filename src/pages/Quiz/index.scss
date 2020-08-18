@@ -27,6 +27,7 @@
   .result {
     font-family: Montserrat Regular;
     padding: 6em;
+    text-align: center;
 
     &.error {
       color: $error;

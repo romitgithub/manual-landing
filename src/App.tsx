@@ -14,7 +14,7 @@ function App() {
             <Landing />
           </Route>
           <Route path="/quiz">
-            <Quiz isUserDriven={true} />
+            <Quiz isUserDriven={false} />
           </Route>
         </Switch>
       </Router>

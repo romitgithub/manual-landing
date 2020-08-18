@@ -15,10 +15,11 @@ interface State {
   activeQuestionIndex: number;
   answers: string[];
   isLoading: boolean;
+  errorMessage: string | null;
 }
 
 interface Props {
-  isUserDriven: boolean;
+  isUserDriven: boolean; // This is used to display next and back button in quiz, if false the quiz will automatically move forward
 }
 
 export default class Quiz extends React.Component<Props, State> {
@@ -27,18 +28,32 @@ export default class Quiz extends React.Component<Props, State> {
     answers: [],
     questions: [],
     isLoading: false,
+    errorMessage: null,
   };
 
   componentDidMount() {
-    this.setState({ isLoading: true });
     const apiUrl = "https://api.jsonbin.io/b/5f3948c44d9399103615ec4d/1";
 
+    this.setState({ isLoading: true });
     ApiService.get(apiUrl).then(
-      (response) =>
-        this.setState({ isLoading: false, questions: response.questions }),
+      (response) => {
+        if (response && response.questions) {
+          this.setState({
+            errorMessage: null,
+            isLoading: false,
+            questions: response.questions,
+          });
+        } else {
+          this.setState({
+            errorMessage: "Uh oh! Failed to load quiz. Please try again.",
+          });
+        }
+      },
       (error) => {
-        this.setState({ isLoading: false });
-        alert(error);
+        this.setState({
+          isLoading: false,
+          errorMessage: "Uh oh! Failed to load quiz. Please try again.",
+        });
       }
     );
   }
@@ -92,14 +107,21 @@ export default class Quiz extends React.Component<Props, State> {
 
   render() {
     let { isUserDriven } = this.props;
-    let { activeQuestionIndex, answers, questions } = this.state;
+    let {
+      activeQuestionIndex,
+      answers,
+      questions,
+      isLoading,
+      errorMessage,
+    } = this.state;
     const question: Question = questions[activeQuestionIndex];
     return (
       <div className="quiz-container">
         <Link to="/">
           <img src={ManualLogo} className="logo" alt="Manual" />
         </Link>
-        {this.state.isLoading ? (
+        {errorMessage ? <p className="result error">{errorMessage}</p> : null}
+        {isLoading ? (
           <p className="loading-text">Loading questions...</p>
         ) : (
           <>
