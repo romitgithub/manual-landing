@@ -17,7 +17,9 @@ interface State {
   isLoading: boolean;
 }
 
-interface Props {}
+interface Props {
+  isUserDriven: boolean;
+}
 
 export default class Quiz extends React.Component<Props, State> {
   state: State = {
@@ -46,6 +48,11 @@ export default class Quiz extends React.Component<Props, State> {
     answers[activeQuestionIndex] = e.target.value;
 
     this.setState({ answers });
+    setTimeout(() => {
+      if (!this.props.isUserDriven) {
+        this.handleNextClick();
+      }
+    }, 1000);
   };
 
   handleNextClick = () => {
@@ -84,6 +91,7 @@ export default class Quiz extends React.Component<Props, State> {
   };
 
   render() {
+    let { isUserDriven } = this.props;
     let { activeQuestionIndex, answers, questions } = this.state;
     const question: Question = questions[activeQuestionIndex];
     return (
@@ -138,23 +146,25 @@ export default class Quiz extends React.Component<Props, State> {
                         ))}
                       </div>
                     </div>
-                    <div className="action-buttons">
-                      {!this.isFirstQuestion() ? (
+                    {isUserDriven ? (
+                      <div className="action-buttons">
+                        {!this.isFirstQuestion() ? (
+                          <button
+                            onClick={this.handlePreviousClick}
+                            className="prev-btn"
+                          >
+                            Back
+                          </button>
+                        ) : null}
                         <button
-                          onClick={this.handlePreviousClick}
-                          className="prev-btn"
+                          disabled={!answers[activeQuestionIndex]}
+                          onClick={this.handleNextClick}
+                          className="next-btn"
                         >
-                          Back
+                          {this.isLastQuestion() ? "Submit" : "Next"}
                         </button>
-                      ) : null}
-                      <button
-                        disabled={!answers[activeQuestionIndex]}
-                        onClick={this.handleNextClick}
-                        className="next-btn"
-                      >
-                        {this.isLastQuestion() ? "Submit" : "Next"}
-                      </button>
-                    </div>
+                      </div>
+                    ) : null}
                   </>
                 )}
               </>
