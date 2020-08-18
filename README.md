@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Manual Landing
+
+## Steps to run project locally
+
+1.  `npm install`
+
+2. `npm start`
+
+3. Go to http://localhost:3000
 
 ## Available Scripts
 
